@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h2>Churn Prediction Form</h2>
+    <form action="/predict" method="post">
+        <label>Location:</label>
+        <input type="text" name="location" required><br><br>
+
+        <label>Account Type:</label>
+        <input type="text" name="account_type" required><br><br>
+
+        <label>Age:</label>
+        <input type="number" name="age" required><br><br>
+
+        <label>Login Frequency:</label>
+        <input type="number" name="login_frequency" step="0.01" required><br><br>
+
+        <label>Total Spent:</label>
+        <input type="number" name="total_spent" step="0.01" required><br><br>
+
+        <label>Customer Service Interaction Count:</label>
+        <input type="number" name="customer_service_interaction_count" required><br><br>
+
+        <label>Registration Year:</label>
+        <input type="number" name="registration_date_year" required><br><br>
+
+        <label>Registration Month:</label>
+        <input type="number" name="registration_date_month" required><br><br>
+
+        <label>Registration Day:</label>
+        <input type="number" name="registration_date_day" required><br><br>
+
+        <label>Gender:</label>
+        <select name="gender">
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
